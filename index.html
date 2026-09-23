@@ -75,12 +75,22 @@ img{display:block;height:auto}
 .method{background:#0D0D0D;padding:80px 20px}
 .method .wrap{display:flex;flex-direction:column;gap:40px}
 .method__head{display:flex;flex-direction:column;gap:14px;max-width:640px}
-.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
-.module{background:#161616;border:1px solid #262626;padding:32px 28px;display:flex;flex-direction:column;gap:16px}
-.module__tag{align-self:flex-start;background:#CE0103;padding:5px 12px;font-weight:800;font-size:12px;letter-spacing:.18em}
-.module h3{font-family:'Tinos',serif;font-weight:400;font-size:30px;margin:0;line-height:1.1}
-.module h3 em{font-weight:700}
-.module p{margin:0;color:#BDBDBD;font-size:16px;line-height:1.55}
+/* Módulos: 3 colunas no computador; carrossel de deslizar no celular */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.module{position:relative;background:#161616;border:1px solid #262626;display:flex;flex-direction:column;margin:0}
+.module img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.module p{margin:0;padding:18px 20px 22px;color:#BDBDBD;font-size:16px;line-height:1.55}
+.modules__dots{display:none}
+@media (max-width:767px){
+  .modules-slider{margin:0 -20px}
+  .modules{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .modules::-webkit-scrollbar{display:none}
+  .module{flex:0 0 82%;scroll-snap-align:start}
+  .modules__dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+  .modules__dots span{width:8px;height:8px;border-radius:50%;background:#3A3A3A;transition:background .2s,width .2s}
+  .modules__dots span.is-active{background:#CE0103;width:22px;border-radius:4px}
+}
 .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px;border-top:1px solid #2A2A2A;padding-top:36px}
 .pillar{display:flex;flex-direction:column;gap:8px}
 .pillar__n{font-weight:800;font-size:13px;letter-spacing:.14em;color:#FF3B3D}
@@ -237,17 +247,34 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
         <span class="eyebrow eyebrow--light">O método</span>
         <h2 class="h2">Baseado nas <em>últimas 15 provas</em>. Dois módulos. Zero enrolação.</h2>
       </div>
-      <div class="modules">
-        <div class="module">
-          <span class="module__tag">MÓDULO 01</span>
-          <h3><em>Questões</em> de Penal e Processo Penal</h3>
-          <p>Os temas que a banca mais cobra, na forma como ela cobra.</p>
+      <div class="modules-slider">
+        <div class="modules" id="modules" tabindex="0" aria-label="Módulos do curso (deslize para ver)">
+          <article class="module">
+            <picture>
+              <source type="image/webp" sizes="(max-width: 767px) 82vw, 300px" srcset="assets/inicio-540.webp 540w, assets/inicio-1080.webp 1080w">
+              <img src="assets/inicio-540.jpg" width="540" height="675" loading="lazy" decoding="async" alt="Início da Operação">
+            </picture>
+            <h3 class="sr-only">Início da Operação</h3>
+            <p>O ponto de partida: como a Operação funciona e o plano até a prova.</p>
+          </article>
+          <article class="module">
+            <picture>
+              <source type="image/webp" sizes="(max-width: 767px) 82vw, 300px" srcset="assets/modulo-01-540.webp 540w, assets/modulo-01-1080.webp 1080w">
+              <img src="assets/modulo-01-540.jpg" width="540" height="675" loading="lazy" decoding="async" alt="Módulo 01: Questões de Penal e Processo Penal">
+            </picture>
+            <h3 class="sr-only">Módulo 01: Questões de Penal e Processo Penal</h3>
+            <p>Os temas que a banca mais cobra, na forma como ela cobra.</p>
+          </article>
+          <article class="module">
+            <picture>
+              <source type="image/webp" sizes="(max-width: 767px) 82vw, 300px" srcset="assets/modulo-02-540.webp 540w, assets/modulo-02-1080.webp 1080w">
+              <img src="assets/modulo-02-540.jpg" width="540" height="675" loading="lazy" decoding="async" alt="Módulo 02: Peças processuais">
+            </picture>
+            <h3 class="sr-only">Módulo 02: Peças processuais</h3>
+            <p>Identificação e estrutura das peças que aparecem na prova.</p>
+          </article>
         </div>
-        <div class="module">
-          <span class="module__tag">MÓDULO 02</span>
-          <h3><em>Peças</em> processuais</h3>
-          <p>Identificação e estrutura das peças que aparecem na prova.</p>
-        </div>
+        <div class="modules__dots" id="modules-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
       </div>
       <div class="pillars">
         <div class="pillar"><span class="pillar__n">01</span><strong>Direto ao ponto</strong><span>Sem teoria solta. Conteúdo tirado de dados reais das últimas 15 provas.</span></div>
@@ -432,6 +459,15 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
     }, { threshold: 0.3 });
     io.observe(offer);
   }
+
+  // ===== Carrossel dos módulos (celular): bolinha do slide visível =====
+  var modulesEl = document.getElementById('modules');
+  var dots = document.querySelectorAll('#modules-dots span');
+  modulesEl.addEventListener('scroll', function () {
+    var max = modulesEl.scrollWidth - modulesEl.clientWidth;
+    var i = max > 0 ? Math.round(modulesEl.scrollLeft / max * (dots.length - 1)) : 0;
+    dots.forEach(function (d, k) { d.classList.toggle('is-active', k === i); });
+  }, { passive: true });
 
   // ===== Copiar cupom =====
   var couponLabel = document.getElementById('coupon-label'), ct;

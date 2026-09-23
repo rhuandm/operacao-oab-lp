@@ -149,12 +149,15 @@ img{display:block;height:auto}
 .sticky .btn{min-height:48px;padding:0 22px;font-size:15px}
 
 /* Checkout no celular: janela própria com a altura da área visível */
-.co{position:fixed;left:0;top:0;width:100%;height:100vh;height:var(--co-h,100dvh);z-index:2147483000;background:#fff;display:flex;flex-direction:column}
+/* top/left/altura seguem a área visível (inclusive com o teclado aberto); a sombra branca
+   cobre qualquer fresta da página enquanto o iOS anima o teclado. */
+.co{position:fixed;left:var(--co-x,0);top:var(--co-y,0);width:100%;height:100vh;height:var(--co-h,100dvh);z-index:2147483000;background:#fff;box-shadow:0 0 0 100vmax #fff;display:flex;flex-direction:column}
 .co[hidden]{display:none}
 .co__bar{flex:none;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 16px;background:#0D0D0D;color:#fff;font-size:13px;font-weight:600;letter-spacing:.04em}
 .co__close{width:48px;height:48px;border:0;background:none;color:#fff;font-size:30px;line-height:1;cursor:pointer;font-family:inherit}
 .co iframe{flex:1;width:100%;min-height:0;border:0;display:block}
 html.co-open,html.co-open body{overflow:hidden}
+html.co-open body{position:fixed;left:0;right:0}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -439,12 +442,20 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
   ln.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
   document.head.appendChild(ln);
 
-  // Celular: janela própria em tela cheia. A altura segue a área realmente visível
-  // (sem a barra do navegador), para o botão de comprar do checkout não ficar cortado.
-  var co, coFrame;
+  // Celular: janela própria em tela cheia. Posição e altura seguem a área realmente
+  // visível (sem a barra do navegador e acima do teclado), para o checkout não ficar
+  // cortado nem deslocado quando o iOS rola a página ao abrir o teclado.
+  var co, coFrame, coRaf, coScrollY = 0;
   function fitCheckout() {
-    var h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-    co.style.setProperty('--co-h', Math.round(h) + 'px');
+    var vv = window.visualViewport;
+    co.style.setProperty('--co-h', Math.round(vv ? vv.height : window.innerHeight) + 'px');
+    co.style.setProperty('--co-y', (vv ? vv.offsetTop : 0) + 'px');
+    co.style.setProperty('--co-x', (vv ? vv.offsetLeft : 0) + 'px');
+  }
+  function queueFit() {
+    if (!co || co.hidden) return;
+    cancelAnimationFrame(coRaf);
+    coRaf = requestAnimationFrame(fitCheckout);
   }
   function openMobileCheckout() {
     if (!co) {
@@ -461,20 +472,30 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
       co.appendChild(coFrame);
       document.body.appendChild(co);
       co.querySelector('.co__close').addEventListener('click', function () { history.back(); });
-      window.addEventListener('resize', function () { if (!co.hidden) fitCheckout(); });
-      if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { if (!co.hidden) fitCheckout(); });
+      window.addEventListener('resize', queueFit);
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', queueFit);
+        window.visualViewport.addEventListener('scroll', queueFit);
+      }
       // O botão "voltar" do celular fecha o checkout em vez de sair da página.
       window.addEventListener('popstate', function () { if (!co.hidden) closeMobileCheckout(); });
     }
     if (coFrame.src !== btn.href) coFrame.src = btn.href;
-    fitCheckout();
-    co.hidden = false;
+    // Trava a página de trás (no iOS só overflow:hidden não impede a rolagem).
+    // A posição é restaurada por nós ao fechar, não pelo histórico do navegador.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    coScrollY = window.scrollY;
+    document.body.style.top = -coScrollY + 'px';
     document.documentElement.classList.add('co-open');
+    co.hidden = false;
+    fitCheckout();
     history.pushState({ checkout: true }, '');
   }
   function closeMobileCheckout() {
     co.hidden = true;
     document.documentElement.classList.remove('co-open');
+    document.body.style.top = '';
+    window.scrollTo({ top: coScrollY, behavior: 'instant' });
   }
 
   // Abre o checkout por cima da página. Roda na fase de captura para substituir o

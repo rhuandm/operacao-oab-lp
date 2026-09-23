@@ -93,7 +93,7 @@ img{display:block;height:auto}
 /* Oferta */
 .offer{background:#fff;color:#0D0D0D;padding:80px 20px;scroll-margin-top:40px}
 .offer__inner{max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:24px;text-align:center}
-.offer__logo{width:200px;align-self:center}
+.offer__logo{width:200px;margin:0 auto}
 .offer__timer{display:flex;flex-direction:column;gap:10px;align-items:center}
 .clock{display:flex;gap:8px;justify-content:center}
 .clock div{background:#0D0D0D;color:#fff;min-width:74px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:2px}
@@ -109,9 +109,11 @@ img{display:block;height:auto}
 .coupon{width:100%;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border:2px dashed #CE0103;background:#FFF5F5;cursor:pointer;font-family:inherit}
 .coupon strong{font-size:22px;font-weight:800;letter-spacing:.12em;color:#0D0D0D}
 .coupon span{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#CE0103}
-.btn--checkout{width:100%;min-height:64px;font-size:19px;padding:0 20px}
-/* Neutraliza o estilo padrão da folha hotmart-fb.min.css */
-a.hotmart-fb{border:0!important;box-shadow:none!important;border-radius:0!important;text-shadow:none!important;font-family:'Outfit',system-ui,sans-serif!important;background-image:none!important}
+/* Botão de checkout: a folha hotmart-fb.min.css carrega depois e sobrescreve classes comuns,
+   então todo o visual do botão é fixado com id + !important. */
+#checkout.hotmart-fb{display:flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;width:100%!important;max-width:none!important;height:auto!important;min-height:64px!important;margin:0!important;padding:0 20px!important;background:#CE0103!important;background-image:none!important;color:#fff!important;opacity:1!important;visibility:visible!important;overflow:visible!important;text-indent:0!important;font-family:'Outfit',system-ui,sans-serif!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;letter-spacing:.06em!important;text-transform:uppercase!important;text-decoration:none!important;text-align:center!important;text-shadow:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;transform:none!important}
+#checkout.hotmart-fb:hover{background:#E0100F!important;color:#fff!important}
+#checkout.hotmart-fb::before,#checkout.hotmart-fb::after{content:none!important;display:none!important}
 .box__secure{font-size:13px;color:#555}
 .guarantee{display:flex;gap:18px;align-items:center;text-align:left;padding:20px;background:#F3F3F3}
 .guarantee__seal{flex:none;width:64px;height:64px;border-radius:50%;border:2px solid #CE0103;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
@@ -287,7 +289,7 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
 
         <div class="step">
           <span class="step__label">2. Aplique no checkout</span>
-          <a href="#" id="checkout" class="btn btn--checkout hotmart-fb hotmart__button-checkout">Garantir minha vaga</a>
+          <a href="#" id="checkout" class="btn hotmart-fb hotmart__button-checkout">Garantir minha vaga</a>
         </div>
         <span class="box__secure">Pagamento seguro via Hotmart · Pix, boleto ou cartão</span>
       </div>

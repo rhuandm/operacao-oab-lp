@@ -397,7 +397,7 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
     price: 375,                 // preço cheio (R$); o cupom aplica 10%
     discount: 0.10,
     videoUrl: '',               // link do YouTube ou Vimeo da VSL (vazio = bloco de vídeo oculto)
-    timerHours: 2,              // contador por visitante, a partir da 1ª visita
+    timerHours: 2,              // contador recomeça com este valor a cada vez que a página abre
     deadline: '2026-09-30',     // o contador nunca passa desta data (23:59:59, horário de Brasília)
     coupon: 'OPERACAO10'
   };
@@ -410,14 +410,8 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
   setText('[data-price-full]', fmt(CONFIG.price));
   setText('[data-price-off]', fmt(CONFIG.price * (1 - CONFIG.discount)));
 
-  // ===== Contador evergreen (por visitante) =====
-  var start = Date.now();
-  try {
-    var key = 'oab_promo_start_v1';
-    var saved = parseInt(localStorage.getItem(key) || '', 10);
-    if (saved) start = saved; else localStorage.setItem(key, String(start));
-  } catch (e) {}
-  var end = start + CONFIG.timerHours * 3600e3;
+  // ===== Contador: recomeça em timerHours a cada vez que a página abre =====
+  var end = Date.now() + CONFIG.timerHours * 3600e3;
   var dl = Date.parse(CONFIG.deadline + 'T23:59:59-03:00');
   if (!isNaN(dl)) end = Math.min(end, dl);
 

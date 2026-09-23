@@ -19,7 +19,7 @@ No fim do `index.html`, no bloco `CONFIG`:
 | `checkoutUrl` | Link do checkout Hotmart |
 | `price` | Preço cheio em R$ (o cupom aplica `discount`) |
 | `videoUrl` | Link do YouTube ou Vimeo da VSL; vazio esconde o vídeo |
-| `timerHours` | Duração do contador, a partir da 1ª visita de cada pessoa |
+| `timerHours` | Duração do contador; recomeça a cada vez que a página abre |
 | `deadline` | Data limite do contador (23:59:59, horário de Brasília) |
 
 ## Pixel da Meta

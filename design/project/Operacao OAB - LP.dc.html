@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#0D0D0D;color:#fff;-webkit-font-smoothing:antialiased}
+a{color:#fff}a:hover{color:#CE0103}
+details summary::-webkit-details-marker{display:none}
+a.hotmart-fb{border:0!important;box-shadow:none!important;border-radius:0!important;text-shadow:none!important;font-family:'Outfit',system-ui,sans-serif!important;background-image:none!important}
+</style>
+</helmet>
+
+<div style="font-family:'Outfit',system-ui,sans-serif;background:#0D0D0D;min-height:100vh;padding-bottom:76px">
+
+  <!-- Barra de urgência -->
+  <div style="position:sticky;top:0;z-index:20;background:#CE0103;color:#fff;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;font-weight:600;font-size:14px;letter-spacing:.04em;text-align:center">
+    <span style="text-transform:uppercase">10% OFF com o cupom <strong style="font-weight:800">OPERACAO10</strong></span>
+    <span style="display:flex;align-items:center;gap:6px"><span style="font-weight:300">termina em</span><strong style="font-weight:800;font-variant-numeric:tabular-nums;font-size:15px">{{ tBar }}</strong></span>
+  </div>
+
+  <!-- Hero -->
+  <section style="padding:48px 20px 64px;background:#0D0D0D">
+    <div style="max-width:960px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center">
+      <img src="assets/logo-branca.png" alt="Operação OAB — 2ª Fase | Direito Penal" style="width:240px;max-width:60vw;height:auto;display:block">
+      <div style="display:inline-block;background:#CE0103;padding:6px 14px;font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase">Curso emergencial · 2ª fase OAB</div>
+      <h1 style="font-family:'Tinos',serif;font-weight:400;font-size:clamp(34px,6vw,64px);line-height:1.05;margin:0;text-wrap:balance">Não é sobre estudar mais.<br>É sobre estudar <em style="font-style:italic;font-weight:700;color:#fff;border-bottom:4px solid #CE0103">certo</em>.</h1>
+      <p style="margin:0;max-width:620px;font-size:clamp(16px,2.2vw,19px);line-height:1.5;color:#C9C9C9;text-wrap:pretty">Preparação direta para a 2ª fase de Direito Penal, construída a partir da análise das <strong style="color:#fff">últimas 15 provas</strong>. Com o Prof. Norton Viggiano.</p>
+
+      <div style="width:100%;max-width:820px;aspect-ratio:16/9;background:#161616;border:1px solid #2A2A2A;position:relative;overflow:hidden">
+        <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+          <iframe src="{{ videoEmbed }}" title="Vídeo de apresentação" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+        </sc-if>
+        <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:repeating-linear-gradient(135deg,#151515 0 14px,#191919 14px 28px)">
+            <div style="width:72px;height:72px;border-radius:50%;background:#CE0103;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:22px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px"></div></div>
+            <span style="font-family:ui-monospace,monospace;font-size:12px;color:#8A8A8A">VSL — cole o link do YouTube/Vimeo nos Tweaks</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;width:100%">
+        <a href="#oferta" style="display:flex;align-items:center;justify-content:center;width:100%;max-width:460px;min-height:60px;background:#CE0103;color:#fff;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase;padding:0 24px" style-hover="background:#E0100F;color:#fff">Quero garantir 10% OFF</a>
+        <span style="font-size:13px;color:#9A9A9A">Garantia de 7 dias · Acesso imediato</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem é -->
+  <section style="background:#fff;color:#0D0D0D;padding:72px 20px">
+    <div style="max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#CE0103">Para quem é</span>
+        <h2 style="font-family:'Tinos',serif;font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.08;margin:0;text-wrap:balance">Pra quem está na reta final e precisa de <em style="font-weight:700">direção</em>, não de mais conteúdo.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;border-top:2px solid #0D0D0D">
+        <sc-for list="{{ forWho }}" as="item" hint-placeholder-count="4">
+          <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid #DDD;font-size:17px;line-height:1.45;font-weight:400">
+            <span style="color:#CE0103;font-weight:800;flex:none">—</span><span>{{ item }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Método -->
+  <section style="background:#0D0D0D;padding:80px 20px">
+    <div style="max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#FF3B3D">O método</span>
+        <h2 style="font-family:'Tinos',serif;font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.08;margin:0;text-wrap:balance">Baseado nas <em style="font-weight:700">últimas 15 provas</em>. Dois módulos. Zero enrolação.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+        <div style="background:#161616;border:1px solid #262626;padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+          <span style="align-self:flex-start;background:#CE0103;padding:5px 12px;font-weight:800;font-size:12px;letter-spacing:.18em">MÓDULO 01</span>
+          <h3 style="font-family:'Tinos',serif;font-weight:400;font-size:30px;margin:0;line-height:1.1"><em style="font-weight:700">Questões</em> de Penal e Processo Penal</h3>
+          <p style="margin:0;color:#BDBDBD;font-size:16px;line-height:1.55">Os temas que a banca mais cobra, na forma como ela cobra.</p>
+        </div>
+        <div style="background:#161616;border:1px solid #262626;padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+          <span style="align-self:flex-start;background:#CE0103;padding:5px 12px;font-weight:800;font-size:12px;letter-spacing:.18em">MÓDULO 02</span>
+          <h3 style="font-family:'Tinos',serif;font-weight:400;font-size:30px;margin:0;line-height:1.1"><em style="font-weight:700">Peças</em> processuais</h3>
+          <p style="margin:0;color:#BDBDBD;font-size:16px;line-height:1.55">Identificação e estrutura das peças que aparecem na prova.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px;border-top:1px solid #2A2A2A;padding-top:36px">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-weight:800;font-size:13px;letter-spacing:.14em;color:#FF3B3D">{{ p.n }}</span>
+            <strong style="font-size:19px;font-weight:600">{{ p.t }}</strong>
+            <span style="color:#BDBDBD;font-size:15px;line-height:1.5">{{ p.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Área de membros -->
+  <section style="background:#fff;color:#0D0D0D;padding:80px 20px">
+    <div style="max-width:1040px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;max-width:680px">
+        <span style="display:inline-block;background:#CE0103;color:#fff;padding:6px 14px;font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase">Aulas novas todos os dias.</span>
+        <h2 style="font-family:'Tinos',serif;font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.08;margin:0;text-wrap:balance">Você não recebe todo o conteúdo <em style="font-weight:700">de uma vez.</em></h2>
+        <p style="margin:0;font-size:clamp(16px,2vw,18px);line-height:1.55;color:#444;text-wrap:pretty">A Operação foi estruturada para liberar novas aulas diariamente, mantendo seu estudo organizado e fazendo você avançar passo a passo até a prova.</p>
+      </div>
+      <img src="assets/mockup-area-membros.png" alt="Área de membros da Operação OAB no notebook e no celular" loading="lazy" style="width:100%;max-width:1000px;height:auto;display:block">
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section style="background:#CE0103;padding:64px 20px">
+    <p style="max-width:860px;margin:0 auto;text-align:center;font-family:'Tinos',serif;font-size:clamp(26px,4vw,42px);line-height:1.2;text-wrap:balance">“A carteirinha não vem pra quem estuda mais. Vem pra quem estuda <em style="font-weight:700">certo</em>.”</p>
+  </section>
+
+  <!-- Oferta -->
+  <section id="oferta" style="background:#fff;color:#0D0D0D;padding:80px 20px;scroll-margin-top:40px">
+    <div style="max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:24px;text-align:center">
+      <img src="assets/logo-preta.png" alt="Operação OAB" style="width:200px;height:auto;align-self:center;display:block">
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#CE0103">Oferta por tempo limitado</span>
+        <div style="display:flex;gap:8px;justify-content:center">
+          <sc-for list="{{ tParts }}" as="t" hint-placeholder-count="3">
+            <div style="background:#0D0D0D;color:#fff;min-width:74px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:2px">
+              <strong style="font-size:32px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1">{{ t.v }}</strong>
+              <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#BDBDBD">{{ t.l }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="border:2px solid #0D0D0D;padding:32px 24px;display:flex;flex-direction:column;gap:20px;align-items:center">
+        <div style="display:flex;flex-direction:column;gap:4px;align-items:center">
+          <span style="font-size:16px;color:#555">de <s>{{ priceFull }}</s> por</span>
+          <strong style="font-family:'Tinos',serif;font-size:clamp(52px,10vw,72px);line-height:1;font-weight:700">{{ priceOff }}</strong>
+          <span style="font-size:14px;color:#555">à vista com o cupom · ou parcelado no cartão</span>
+        </div>
+
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">1. Copie o cupom</span>
+          <button onClick="{{ copyCoupon }}" style="width:100%;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border:2px dashed #CE0103;background:#FFF5F5;cursor:pointer;font-family:inherit">
+            <strong style="font-size:22px;font-weight:800;letter-spacing:.12em;color:#0D0D0D">OPERACAO10</strong>
+            <span style="font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#CE0103">{{ copyLabel }}</span>
+          </button>
+        </div>
+
+        <div style="width:100%;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">2. Aplique no checkout</span>
+          <a href="{{ checkoutHref }}" class="hotmart-fb hotmart__button-checkout" onClick="{{ openCheckout }}" style="font-family:'Outfit',system-ui,sans-serif;border:0;box-shadow:none;border-radius:0;text-shadow:none;display:flex;align-items:center;justify-content:center;width:100%;min-height:64px;background:#CE0103;color:#fff;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:.06em;text-transform:uppercase;padding:0 20px" style-hover="background:#E0100F;color:#fff">Garantir minha vaga</a>
+        </div>
+        <span style="font-size:13px;color:#555">Pagamento seguro via Hotmart · Pix, boleto ou cartão</span>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center;text-align:left;padding:20px;background:#F3F3F3">
+        <div style="flex:none;width:64px;height:64px;border-radius:50%;border:2px solid #CE0103;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1">
+          <strong style="font-size:24px;font-weight:800">7</strong><span style="font-size:10px;font-weight:600;letter-spacing:.1em">DIAS</span>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.5"><strong>Garantia incondicional de 7 dias.</strong> Se não for pra você, peça o reembolso dentro do prazo e devolvemos 100% do valor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:#0D0D0D;padding:72px 20px">
+    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <h2 style="font-family:'Tinos',serif;font-weight:400;font-size:clamp(28px,4vw,40px);margin:0;text-align:center">Dúvidas <em style="font-weight:700">frequentes</em></h2>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #2A2A2A">
+        <sc-for list="{{ faq }}" as="f" hint-placeholder-count="5">
+          <details style="border-bottom:1px solid #2A2A2A">
+            <summary style="list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;gap:16px;font-size:17px;font-weight:600">{{ f.q }}<span style="color:#FF3B3D;font-weight:800">+</span></summary>
+            <p style="margin:0 0 20px;color:#BDBDBD;font-size:16px;line-height:1.55">{{ f.a }}</p>
+          </details>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section style="background:#0D0D0D;border-top:1px solid #1E1E1E;padding:72px 20px 56px">
+    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center">
+      <h2 style="font-family:'Tinos',serif;font-weight:400;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0">Sua aprovação <em style="font-weight:700">começa aqui.</em></h2>
+      <a href="#oferta" style="display:flex;align-items:center;justify-content:center;width:100%;max-width:460px;min-height:60px;background:#CE0103;color:#fff;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#E0100F;color:#fff">Quero garantir 10% OFF</a>
+      <img src="assets/logo-branca.png" alt="Operação OAB" style="width:140px;height:auto;opacity:.9;margin-top:24px">
+      <span style="font-size:12px;color:#8A8A8A;letter-spacing:.08em">PROF. NORTON VIGGIANO · © 2026</span>
+    </div>
+  </section>
+
+  <!-- CTA fixo -->
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:#0D0D0D;border-top:1px solid #2A2A2A;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:16px">
+    <div style="display:flex;flex-direction:column;line-height:1.15">
+      <strong style="font-size:17px;font-weight:800">{{ priceOff }}</strong>
+      <span style="font-size:12px;color:#BDBDBD;font-variant-numeric:tabular-nums">cupom expira em {{ tBar }}</span>
+    </div>
+    <a href="#oferta" style="display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;background:#CE0103;color:#fff;text-decoration:none;font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase" style-hover="background:#E0100F;color:#fff">Garantir vaga</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;checkoutUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://pay.hotmart.com/O107585601B&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Checkout&quot;},&quot;price&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:375,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Checkout&quot;},&quot;videoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vídeo&quot;},&quot;timerHours&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:2,&quot;min&quot;:1,&quot;max&quot;:168,&quot;unit&quot;:&quot;h&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Contador&quot;},&quot;deadline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2026-09-30&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contador&quot;}}">
+class Component extends DCLogic {
+  state = { now: Date.now(), copied: false };
+  componentDidMount() {
+    const key = 'oab_promo_start_v1';
+    let s = parseInt(localStorage.getItem(key) || '', 10);
+    if (!s) { s = Date.now(); localStorage.setItem(key, String(s)); }
+    this.start = s;
+    this.iv = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    if (!document.querySelector('script[src*="hotmart.com/checkout/widget"]')) {
+      const sc = document.createElement('script');
+      sc.src = 'https://static.hotmart.com/checkout/widget.min.js';
+      document.head.appendChild(sc);
+      const ln = document.createElement('link');
+      ln.rel = 'stylesheet'; ln.type = 'text/css';
+      ln.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+      document.head.appendChild(ln);
+    }
+  }
+  componentWillUnmount() { clearInterval(this.iv); }
+  fmt(n) { return 'R$ ' + n.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+  renderVals() {
+    const p = this.props;
+    const hours = p.timerHours ?? 2;
+    const price = p.price ?? 375;
+    const url = p.checkoutUrl || 'https://pay.hotmart.com/O107585601B';
+    const start = this.start || this.state.now;
+    let end = start + hours * 3600e3;
+    const dl = Date.parse((p.deadline || '2026-09-30') + 'T23:59:59-03:00');
+    if (!isNaN(dl)) end = Math.min(end, dl);
+    let left = Math.max(0, end - this.state.now);
+    if (left === 0 && p.restartOnExpire !== false && (isNaN(dl) || this.state.now < dl)) left = 0;
+    const h = Math.floor(left / 3600e3), m = Math.floor(left % 3600e3 / 60e3), s = Math.floor(left % 60e3 / 1e3);
+    const z = n => String(n).padStart(2, '0');
+    const vid = p.videoUrl || '';
+    let embed = vid;
+    const yt = vid.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if (yt) embed = 'https://www.youtube.com/embed/' + yt[1] + '?rel=0&modestbranding=1';
+    const vm = vid.match(/vimeo\.com\/(\d+)/);
+    if (vm) embed = 'https://player.vimeo.com/video/' + vm[1];
+    return {
+      tBar: z(h) + ':' + z(m) + ':' + z(s),
+      tParts: [{ v: z(h), l: 'horas' }, { v: z(m), l: 'min' }, { v: z(s), l: 'seg' }],
+      priceFull: this.fmt(price),
+      priceOff: this.fmt(price * 0.9),
+      checkoutHref: url + (url.includes('?') ? '&' : '?') + 'checkoutMode=2',
+      openCheckout: e => {
+        const jq = window.jQuery;
+        const mobile = window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent);
+        if (!jq || !jq.fancybox) return;
+        e.preventDefault();
+        jq.fancybox.open({ src: e.currentTarget.href, type: 'iframe', toolbar: false, smallBtn: true,
+          iframe: { css: mobile ? { width: '100%', height: '100%', maxWidth: 'none', maxHeight: 'none' } : { width: '600px' }, attr: { allowpaymentrequest: 'true' } },
+          margin: mobile ? [0, 0] : [44, 0] });
+      },
+      hasVideo: !!vid, noVideo: !vid, videoEmbed: embed,
+      copyLabel: this.state.copied ? 'Copiado ✓' : 'Copiar',
+      copyCoupon: () => {
+        try { navigator.clipboard.writeText('OPERACAO10'); } catch (e) {}
+        this.setState({ copied: true });
+        clearTimeout(this.ct); this.ct = setTimeout(() => this.setState({ copied: false }), 2500);
+      },
+      forWho: [
+        'Você está na reta final da 2ª fase e o tempo é curto.',
+        'Já tentou estudar tudo e se perdeu no volume de material.',
+        'Escolheu Direito Penal e quer saber exatamente o que cai.',
+        'Precisa de um plano objetivo, baseado no que a banca cobra.'
+      ],
+      pillars: [
+        { n: '01', t: 'Direto ao ponto', d: 'Sem teoria solta. Conteúdo tirado de dados reais das últimas 15 provas.' },
+        { n: '02', t: 'Feito pra reta final', d: 'Estrutura emergencial, pensada para quem tem pouco tempo até a prova.' },
+        { n: '03', t: 'Autoridade acessível', d: 'Domínio do assunto em tom de conversa, não de aula distante.' }
+      ],
+      faq: [
+        { q: 'Como uso o cupom OPERACAO10?', a: 'Copie o cupom acima, clique em “Garantir minha vaga” e cole o código no campo de cupom do checkout. O desconto de 10% é aplicado na hora.' },
+        { q: 'Para quem é o curso?', a: 'Para candidatos da 2ª fase da OAB em Direito Penal que estão na reta final e precisam de direção objetiva.' },
+        { q: 'O que está incluído?', a: 'Dois módulos: questões de Direito Penal e Processo Penal, e peças processuais, estruturados a partir das últimas 15 provas.' },
+        { q: 'Quais as formas de pagamento?', a: 'Pix, boleto ou cartão de crédito, com parcelamento, pelo checkout seguro da Hotmart.' },
+        { q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia. Peça o reembolso dentro do prazo e recebe 100% do valor de volta.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

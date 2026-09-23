@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operação OAB — 2ª Fase Direito Penal | Prof. Norton Viggiano</title>
+<meta name="description" content="Preparação direta para a 2ª fase da OAB em Direito Penal, construída a partir da análise das últimas 15 provas. 10% OFF com o cupom OPERACAO10.">
+<meta name="theme-color" content="#CE0103">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Operação OAB — 2ª Fase Direito Penal">
+<meta property="og:description" content="Não é sobre estudar mais. É sobre estudar certo. 10% OFF com o cupom OPERACAO10.">
+<meta property="og:image" content="assets/mockup-area-membros.jpg">
+<link rel="icon" type="image/png" href="assets/logo-branca.png">
+<link rel="preload" as="image" href="assets/logo-branca.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:#0D0D0D;color:#fff;-webkit-font-smoothing:antialiased}
+body{font-family:'Outfit',system-ui,sans-serif}
+a{color:#fff}a:hover{color:#CE0103}
+img{display:block;height:auto}
+.serif{font-family:'Tinos',serif}
+.page{background:#0D0D0D;min-height:100vh;padding-bottom:76px}
+.wrap{max-width:960px;margin:0 auto}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#CE0103}
+.eyebrow--light{color:#FF3B3D}
+.tag{display:inline-block;background:#CE0103;color:#fff;padding:6px 14px;font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+.h2{font-family:'Tinos',serif;font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.08;margin:0;text-wrap:balance}
+.h2 em{font-weight:700}
+.btn{display:flex;align-items:center;justify-content:center;background:#CE0103;color:#fff;text-decoration:none;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.btn:hover{background:#E0100F;color:#fff}
+.btn--lg{width:100%;max-width:460px;min-height:60px;font-size:18px;padding:0 24px}
+
+/* Barra de urgência */
+.bar{position:sticky;top:0;z-index:20;background:#CE0103;color:#fff;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;font-weight:600;font-size:14px;letter-spacing:.04em;text-align:center}
+.bar strong{font-weight:800}
+.bar__timer{display:flex;align-items:center;gap:6px}
+.bar__timer span{font-weight:300}
+.bar__timer strong{font-variant-numeric:tabular-nums;font-size:15px}
+
+/* Hero */
+.hero{padding:48px 20px 64px;background:#0D0D0D}
+.hero .wrap{display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
+.hero__logo{width:240px;max-width:60vw}
+.hero h1{font-family:'Tinos',serif;font-weight:400;font-size:clamp(34px,6vw,64px);line-height:1.05;margin:0;text-wrap:balance}
+.hero h1 em{font-style:italic;font-weight:700;color:#fff;border-bottom:4px solid #CE0103}
+.hero__lead{margin:0;max-width:620px;font-size:clamp(16px,2.2vw,19px);line-height:1.5;color:#C9C9C9;text-wrap:pretty}
+.hero__lead strong{color:#fff}
+.vsl{width:100%;max-width:820px;aspect-ratio:16/9;background:#161616;border:1px solid #2A2A2A;position:relative;overflow:hidden}
+.vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hero__cta{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.hero__cta span{font-size:13px;color:#9A9A9A}
+
+/* Para quem é */
+.forwho{background:#fff;color:#0D0D0D;padding:72px 20px}
+.forwho .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:start}
+.forwho__head{display:flex;flex-direction:column;gap:14px}
+.forwho__list{list-style:none;margin:0;padding:0;border-top:2px solid #0D0D0D}
+.forwho__list li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid #DDD;font-size:17px;line-height:1.45}
+.forwho__list li::before{content:"—";color:#CE0103;font-weight:800;flex:none}
+
+/* Método */
+.method{background:#0D0D0D;padding:80px 20px}
+.method .wrap{display:flex;flex-direction:column;gap:40px}
+.method__head{display:flex;flex-direction:column;gap:14px;max-width:640px}
+.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.module{background:#161616;border:1px solid #262626;padding:32px 28px;display:flex;flex-direction:column;gap:16px}
+.module__tag{align-self:flex-start;background:#CE0103;padding:5px 12px;font-weight:800;font-size:12px;letter-spacing:.18em}
+.module h3{font-family:'Tinos',serif;font-weight:400;font-size:30px;margin:0;line-height:1.1}
+.module h3 em{font-weight:700}
+.module p{margin:0;color:#BDBDBD;font-size:16px;line-height:1.55}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px;border-top:1px solid #2A2A2A;padding-top:36px}
+.pillar{display:flex;flex-direction:column;gap:8px}
+.pillar__n{font-weight:800;font-size:13px;letter-spacing:.14em;color:#FF3B3D}
+.pillar strong{font-size:19px;font-weight:600}
+.pillar span:last-child{color:#BDBDBD;font-size:15px;line-height:1.5}
+
+/* Área de membros */
+.members{background:#fff;color:#0D0D0D;padding:80px 20px}
+.members__inner{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center}
+.members__head{display:flex;flex-direction:column;align-items:center;gap:16px;max-width:680px}
+.members__head p{margin:0;font-size:clamp(16px,2vw,18px);line-height:1.55;color:#444;text-wrap:pretty}
+.members img{width:100%;max-width:1000px}
+
+/* Quote */
+.quote{background:#CE0103;padding:64px 20px}
+.quote p{max-width:860px;margin:0 auto;text-align:center;font-family:'Tinos',serif;font-size:clamp(26px,4vw,42px);line-height:1.2;text-wrap:balance}
+.quote em{font-weight:700}
+
+/* Oferta */
+.offer{background:#fff;color:#0D0D0D;padding:80px 20px;scroll-margin-top:40px}
+.offer__inner{max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:24px;text-align:center}
+.offer__logo{width:200px;align-self:center}
+.offer__timer{display:flex;flex-direction:column;gap:10px;align-items:center}
+.clock{display:flex;gap:8px;justify-content:center}
+.clock div{background:#0D0D0D;color:#fff;min-width:74px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.clock strong{font-size:32px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.clock span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#BDBDBD}
+.box{border:2px solid #0D0D0D;padding:32px 24px;display:flex;flex-direction:column;gap:20px;align-items:center}
+.price{display:flex;flex-direction:column;gap:4px;align-items:center}
+.price__from{font-size:16px;color:#555}
+.price__now{font-family:'Tinos',serif;font-size:clamp(52px,10vw,72px);line-height:1;font-weight:700}
+.price__note{font-size:14px;color:#555}
+.step{width:100%;display:flex;flex-direction:column;gap:8px}
+.step__label{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.coupon{width:100%;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border:2px dashed #CE0103;background:#FFF5F5;cursor:pointer;font-family:inherit}
+.coupon strong{font-size:22px;font-weight:800;letter-spacing:.12em;color:#0D0D0D}
+.coupon span{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#CE0103}
+.btn--checkout{width:100%;min-height:64px;font-size:19px;padding:0 20px}
+/* Neutraliza o estilo padrão da folha hotmart-fb.min.css */
+a.hotmart-fb{border:0!important;box-shadow:none!important;border-radius:0!important;text-shadow:none!important;font-family:'Outfit',system-ui,sans-serif!important;background-image:none!important}
+.box__secure{font-size:13px;color:#555}
+.guarantee{display:flex;gap:18px;align-items:center;text-align:left;padding:20px;background:#F3F3F3}
+.guarantee__seal{flex:none;width:64px;height:64px;border-radius:50%;border:2px solid #CE0103;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.guarantee__seal strong{font-size:24px;font-weight:800}
+.guarantee__seal span{font-size:10px;font-weight:600;letter-spacing:.1em}
+.guarantee p{margin:0;font-size:15px;line-height:1.5}
+
+/* FAQ */
+.faq{background:#0D0D0D;padding:72px 20px}
+.faq__inner{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.faq h2{font-family:'Tinos',serif;font-weight:400;font-size:clamp(28px,4vw,40px);margin:0;text-align:center}
+.faq h2 em{font-weight:700}
+.faq__list{display:flex;flex-direction:column;border-top:1px solid #2A2A2A}
+.faq details{border-bottom:1px solid #2A2A2A}
+.faq summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;gap:16px;font-size:17px;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary span{color:#FF3B3D;font-weight:800}
+.faq details p{margin:0 0 20px;color:#BDBDBD;font-size:16px;line-height:1.55}
+
+/* CTA final */
+.final{background:#0D0D0D;border-top:1px solid #1E1E1E;padding:72px 20px 56px}
+.final__inner{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+.final h2{font-family:'Tinos',serif;font-weight:400;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0}
+.final h2 em{font-weight:700}
+.final__logo{width:140px;opacity:.9;margin-top:24px}
+.final small{font-size:12px;color:#8A8A8A;letter-spacing:.08em}
+
+/* CTA fixo */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#0D0D0D;border-top:1px solid #2A2A2A;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:16px}
+.sticky__info{display:flex;flex-direction:column;line-height:1.15}
+.sticky__info strong{font-size:17px;font-weight:800}
+.sticky__info span{font-size:12px;color:#BDBDBD;font-variant-numeric:tabular-nums}
+.sticky .btn{min-height:48px;padding:0 22px;font-size:15px}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1076361875004041');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<div class="page">
+
+  <!-- Barra de urgência -->
+  <div class="bar">
+    <span style="text-transform:uppercase">10% OFF com o cupom <strong>OPERACAO10</strong></span>
+    <span class="bar__timer"><span>termina em</span><strong data-timer>--:--:--</strong></span>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <picture>
+        <source srcset="assets/logo-branca.webp" type="image/webp">
+        <img class="hero__logo" src="assets/logo-branca.png" width="480" height="205" alt="Operação OAB — 2ª Fase | Direito Penal" fetchpriority="high">
+      </picture>
+      <div class="tag">Curso emergencial · 2ª fase OAB</div>
+      <h1>Não é sobre estudar mais.<br>É sobre estudar <em>certo</em>.</h1>
+      <p class="hero__lead">Preparação direta para a 2ª fase de Direito Penal, construída a partir da análise das <strong>últimas 15 provas</strong>. Com o Prof. Norton Viggiano.</p>
+      <div class="vsl" id="vsl" hidden></div>
+      <div class="hero__cta">
+        <a href="#oferta" class="btn btn--lg">Quero garantir 10% OFF</a>
+        <span>Garantia de 7 dias · Acesso imediato</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem é -->
+  <section class="forwho">
+    <div class="wrap">
+      <div class="forwho__head">
+        <span class="eyebrow">Para quem é</span>
+        <h2 class="h2">Pra quem está na reta final e precisa de <em>direção</em>, não de mais conteúdo.</h2>
+      </div>
+      <ul class="forwho__list">
+        <li>Você está na reta final da 2ª fase e o tempo é curto.</li>
+        <li>Já tentou estudar tudo e se perdeu no volume de material.</li>
+        <li>Escolheu Direito Penal e quer saber exatamente o que cai.</li>
+        <li>Precisa de um plano objetivo, baseado no que a banca cobra.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Método -->
+  <section class="method">
+    <div class="wrap">
+      <div class="method__head">
+        <span class="eyebrow eyebrow--light">O método</span>
+        <h2 class="h2">Baseado nas <em>últimas 15 provas</em>. Dois módulos. Zero enrolação.</h2>
+      </div>
+      <div class="modules">
+        <div class="module">
+          <span class="module__tag">MÓDULO 01</span>
+          <h3><em>Questões</em> de Penal e Processo Penal</h3>
+          <p>Os temas que a banca mais cobra, na forma como ela cobra.</p>
+        </div>
+        <div class="module">
+          <span class="module__tag">MÓDULO 02</span>
+          <h3><em>Peças</em> processuais</h3>
+          <p>Identificação e estrutura das peças que aparecem na prova.</p>
+        </div>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><span class="pillar__n">01</span><strong>Direto ao ponto</strong><span>Sem teoria solta. Conteúdo tirado de dados reais das últimas 15 provas.</span></div>
+        <div class="pillar"><span class="pillar__n">02</span><strong>Feito pra reta final</strong><span>Estrutura emergencial, pensada para quem tem pouco tempo até a prova.</span></div>
+        <div class="pillar"><span class="pillar__n">03</span><strong>Autoridade acessível</strong><span>Domínio do assunto em tom de conversa, não de aula distante.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Área de membros -->
+  <section class="members">
+    <div class="members__inner">
+      <div class="members__head">
+        <span class="tag">Aulas novas todos os dias.</span>
+        <h2 class="h2">Você não recebe todo o conteúdo <em>de uma vez.</em></h2>
+        <p>A Operação foi estruturada para liberar novas aulas diariamente, mantendo seu estudo organizado e fazendo você avançar passo a passo até a prova.</p>
+      </div>
+      <picture>
+        <source srcset="assets/mockup-area-membros.webp" type="image/webp">
+        <img src="assets/mockup-area-membros.jpg" width="1536" height="1024" alt="Área de membros da Operação OAB no notebook e no celular" loading="lazy" decoding="async">
+      </picture>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="quote">
+    <p>“A carteirinha não vem pra quem estuda mais. Vem pra quem estuda <em>certo</em>.”</p>
+  </section>
+
+  <!-- Oferta -->
+  <section class="offer" id="oferta">
+    <div class="offer__inner">
+      <picture>
+        <source srcset="assets/logo-preta.webp" type="image/webp">
+        <img class="offer__logo" src="assets/logo-preta.png" width="480" height="205" alt="Operação OAB" loading="lazy">
+      </picture>
+      <div class="offer__timer">
+        <span class="eyebrow">Oferta por tempo limitado</span>
+        <div class="clock">
+          <div><strong data-h>--</strong><span>horas</span></div>
+          <div><strong data-m>--</strong><span>min</span></div>
+          <div><strong data-s>--</strong><span>seg</span></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="price">
+          <span class="price__from">de <s data-price-full></s> por</span>
+          <strong class="price__now" data-price-off></strong>
+          <span class="price__note">à vista com o cupom · ou parcelado no cartão</span>
+        </div>
+
+        <div class="step">
+          <span class="step__label">1. Copie o cupom</span>
+          <button type="button" class="coupon" id="coupon">
+            <strong>OPERACAO10</strong>
+            <span id="coupon-label">Copiar</span>
+          </button>
+        </div>
+
+        <div class="step">
+          <span class="step__label">2. Aplique no checkout</span>
+          <a href="#" id="checkout" class="btn btn--checkout hotmart-fb hotmart__button-checkout">Garantir minha vaga</a>
+        </div>
+        <span class="box__secure">Pagamento seguro via Hotmart · Pix, boleto ou cartão</span>
+      </div>
+
+      <div class="guarantee">
+        <div class="guarantee__seal"><strong>7</strong><span>DIAS</span></div>
+        <p><strong>Garantia incondicional de 7 dias.</strong> Se não for pra você, peça o reembolso dentro do prazo e devolvemos 100% do valor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq__inner">
+      <h2>Dúvidas <em>frequentes</em></h2>
+      <div class="faq__list">
+        <details><summary>Como uso o cupom OPERACAO10?<span>+</span></summary><p>Copie o cupom acima, clique em “Garantir minha vaga” e cole o código no campo de cupom do checkout. O desconto de 10% é aplicado na hora.</p></details>
+        <details><summary>Para quem é o curso?<span>+</span></summary><p>Para candidatos da 2ª fase da OAB em Direito Penal que estão na reta final e precisam de direção objetiva.</p></details>
+        <details><summary>O que está incluído?<span>+</span></summary><p>Dois módulos: questões de Direito Penal e Processo Penal, e peças processuais, estruturados a partir das últimas 15 provas.</p></details>
+        <details><summary>Quais as formas de pagamento?<span>+</span></summary><p>Pix, boleto ou cartão de crédito, com parcelamento, pelo checkout seguro da Hotmart.</p></details>
+        <details><summary>E se eu não gostar?<span>+</span></summary><p>Você tem 7 dias de garantia. Peça o reembolso dentro do prazo e recebe 100% do valor de volta.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="final">
+    <div class="final__inner">
+      <h2>Sua aprovação <em>começa aqui.</em></h2>
+      <a href="#oferta" class="btn btn--lg">Quero garantir 10% OFF</a>
+      <picture>
+        <source srcset="assets/logo-branca.webp" type="image/webp">
+        <img class="final__logo" src="assets/logo-branca.png" width="480" height="205" alt="Operação OAB" loading="lazy">
+      </picture>
+      <small>PROF. NORTON VIGGIANO · © 2026</small>
+    </div>
+  </section>
+
+  <!-- CTA fixo -->
+  <div class="sticky">
+    <div class="sticky__info">
+      <strong data-price-off></strong>
+      <span>cupom expira em <span data-timer>--:--:--</span></span>
+    </div>
+    <a href="#oferta" class="btn">Garantir vaga</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  // ===== Configuração =====
+  var CONFIG = {
+    checkoutUrl: 'https://pay.hotmart.com/O107585601B',
+    price: 375,                 // preço cheio (R$); o cupom aplica 10%
+    discount: 0.10,
+    videoUrl: '',               // link do YouTube ou Vimeo da VSL (vazio = bloco de vídeo oculto)
+    timerHours: 2,              // contador por visitante, a partir da 1ª visita
+    deadline: '2026-09-30',     // o contador nunca passa desta data (23:59:59, horário de Brasília)
+    coupon: 'OPERACAO10'
+  };
+
+  function $$(sel) { return document.querySelectorAll(sel); }
+  function setText(sel, v) { $$(sel).forEach(function (el) { el.textContent = v; }); }
+  function fmt(n) { return 'R$ ' + n.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+
+  // ===== Preço =====
+  setText('[data-price-full]', fmt(CONFIG.price));
+  setText('[data-price-off]', fmt(CONFIG.price * (1 - CONFIG.discount)));
+
+  // ===== Contador evergreen (por visitante) =====
+  var start = Date.now();
+  try {
+    var key = 'oab_promo_start_v1';
+    var saved = parseInt(localStorage.getItem(key) || '', 10);
+    if (saved) start = saved; else localStorage.setItem(key, String(start));
+  } catch (e) {}
+  var end = start + CONFIG.timerHours * 3600e3;
+  var dl = Date.parse(CONFIG.deadline + 'T23:59:59-03:00');
+  if (!isNaN(dl)) end = Math.min(end, dl);
+
+  function z(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    var left = Math.max(0, end - Date.now());
+    var h = z(Math.floor(left / 3600e3)), m = z(Math.floor(left % 3600e3 / 60e3)), s = z(Math.floor(left % 60e3 / 1e3));
+    setText('[data-timer]', h + ':' + m + ':' + s);
+    setText('[data-h]', h); setText('[data-m]', m); setText('[data-s]', s);
+    return left;
+  }
+  if (tick() > 0) {
+    var iv = setInterval(function () { if (tick() === 0) clearInterval(iv); }, 1000);
+  }
+
+  // ===== VSL =====
+  var vid = CONFIG.videoUrl;
+  if (vid) {
+    var embed = vid;
+    var yt = vid.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if (yt) embed = 'https://www.youtube.com/embed/' + yt[1] + '?rel=0&modestbranding=1';
+    var vm = vid.match(/vimeo\.com\/(\d+)/);
+    if (vm) embed = 'https://player.vimeo.com/video/' + vm[1];
+    var box = document.getElementById('vsl');
+    var fr = document.createElement('iframe');
+    fr.src = embed; fr.title = 'Vídeo de apresentação'; fr.loading = 'lazy';
+    fr.allow = 'autoplay; encrypted-media; picture-in-picture'; fr.allowFullscreen = true;
+    box.appendChild(fr); box.hidden = false;
+  }
+
+  // ===== Meta Pixel: eventos =====
+  // Purchase é registrado pela Hotmart (Ferramentas → Pixel), não por esta página.
+  function track(ev, data) { try { if (window.fbq) window.fbq('track', ev, data); } catch (e) {} }
+  var offerData = { content_name: 'Operação OAB — 2ª Fase Direito Penal', value: +(CONFIG.price * (1 - CONFIG.discount)).toFixed(2), currency: 'BRL' };
+  var offer = document.getElementById('oferta');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { track('ViewContent', offerData); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(offer);
+  }
+
+  // ===== Copiar cupom =====
+  var couponLabel = document.getElementById('coupon-label'), ct;
+  document.getElementById('coupon').addEventListener('click', function () {
+    try { navigator.clipboard.writeText(CONFIG.coupon); } catch (e) {}
+    couponLabel.textContent = 'Copiado ✓';
+    clearTimeout(ct);
+    ct = setTimeout(function () { couponLabel.textContent = 'Copiar'; }, 2500);
+  });
+
+  // ===== Checkout Hotmart (widget) =====
+  var url = CONFIG.checkoutUrl;
+  var btn = document.getElementById('checkout');
+  btn.href = url + (url.indexOf('?') > -1 ? '&' : '?') + 'checkoutMode=2';
+
+  var sc = document.createElement('script');
+  sc.src = 'https://static.hotmart.com/checkout/widget.min.js';
+  document.head.appendChild(sc);
+  var ln = document.createElement('link');
+  ln.rel = 'stylesheet'; ln.type = 'text/css';
+  ln.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+  document.head.appendChild(ln);
+
+  // Abre o checkout por cima da página (tela cheia no celular). Roda na fase de captura
+  // para substituir o handler padrão do widget; se o widget ainda não carregou, o link
+  // segue normalmente para a página de checkout da Hotmart.
+  btn.addEventListener('click', function (e) {
+    track('InitiateCheckout', offerData);
+    var jq = window.jQuery;
+    if (!jq || !jq.fancybox) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var mobile = window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent);
+    jq.fancybox.open({
+      src: btn.href, type: 'iframe', toolbar: false, smallBtn: true,
+      iframe: {
+        css: mobile ? { width: '100%', height: '100%', maxWidth: 'none', maxHeight: 'none' } : { width: '600px' },
+        attr: { allowpaymentrequest: 'true' }
+      },
+      margin: mobile ? [0, 0] : [44, 0]
+    });
+  }, true);
+})();
+</script>
+</body>
+</html>

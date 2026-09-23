@@ -12,10 +12,16 @@
 <meta property="og:image" content="assets/mockup-area-membros.jpg">
 <link rel="icon" type="image/png" href="assets/logo-branca.png">
 <link rel="preload" as="image" href="assets/logo-branca.webp" type="image/webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/tinos-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/tinos-700-italic.woff2" crossorigin>
 <style>
+/* Fontes no próprio site (sem Google Fonts, que bloqueava a renderização).
+   font-display:optional evita o "pulo" do texto quando a fonte chega (Layout Shift). */
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:optional;src:url(assets/fonts/outfit.woff2) format('woff2')}
+@font-face{font-family:'Tinos';font-style:normal;font-weight:400;font-display:optional;src:url(assets/fonts/tinos-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Tinos';font-style:normal;font-weight:700;font-display:optional;src:url(assets/fonts/tinos-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Tinos';font-style:italic;font-weight:700;font-display:optional;src:url(assets/fonts/tinos-700-italic.woff2) format('woff2')}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{margin:0;background:#0D0D0D;color:#fff;-webkit-font-smoothing:antialiased}
@@ -186,6 +192,7 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
     <span class="bar__timer"><span>termina em</span><strong data-timer>--:--:--</strong></span>
   </div>
 
+  <main>
   <!-- Hero -->
   <section class="hero">
     <div class="wrap">
@@ -256,7 +263,8 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
         <p>A Operação foi estruturada para liberar novas aulas diariamente, mantendo seu estudo organizado e fazendo você avançar passo a passo até a prova.</p>
       </div>
       <picture>
-        <source srcset="assets/mockup-area-membros.webp" type="image/webp">
+        <source type="image/webp" sizes="(max-width: 1040px) calc(100vw - 40px), 1000px"
+          srcset="assets/mockup-area-membros-640.webp 640w, assets/mockup-area-membros-1024.webp 1024w, assets/mockup-area-membros.webp 1536w">
         <img src="assets/mockup-area-membros.jpg" width="1536" height="1024" alt="Área de membros da Operação OAB no notebook e no celular" loading="lazy" decoding="async">
       </picture>
     </div>
@@ -338,6 +346,8 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
       <small>PROF. NORTON VIGGIANO · © 2026</small>
     </div>
   </section>
+
+  </main>
 
   <!-- CTA fixo -->
   <div class="sticky">
@@ -434,13 +444,23 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
   var btn = document.getElementById('checkout');
   btn.href = url + (url.indexOf('?') > -1 ? '&' : '?') + 'checkoutMode=2';
 
-  var sc = document.createElement('script');
-  sc.src = 'https://static.hotmart.com/checkout/widget.min.js';
-  document.head.appendChild(sc);
-  var ln = document.createElement('link');
-  ln.rel = 'stylesheet'; ln.type = 'text/css';
-  ln.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
-  document.head.appendChild(ln);
+  // O widget da Hotmart só é usado no computador (no celular o checkout abre na janela
+  // própria abaixo). Carrega depois da página pronta, para não pesar no carregamento.
+  function isMobile() { return window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent); }
+  function loadHotmart() {
+    var sc = document.createElement('script');
+    sc.src = 'https://static.hotmart.com/checkout/widget.min.js';
+    document.head.appendChild(sc);
+    var ln = document.createElement('link');
+    ln.rel = 'stylesheet'; ln.type = 'text/css';
+    ln.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+    document.head.appendChild(ln);
+  }
+  if (!isMobile()) {
+    var idle = window.requestIdleCallback || function (f) { setTimeout(f, 1); };
+    if (document.readyState === 'complete') idle(loadHotmart);
+    else window.addEventListener('load', function () { idle(loadHotmart); });
+  }
 
   // Celular: janela própria em tela cheia. Posição e altura seguem a área realmente
   // visível (sem a barra do navegador e acima do teclado), para o checkout não ficar
@@ -510,8 +530,7 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
   // carregou, o link segue normalmente para a página de checkout da Hotmart.
   btn.addEventListener('click', function (e) {
     track('InitiateCheckout', offerData);
-    var mobile = window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent);
-    if (mobile) {
+    if (isMobile()) {
       e.preventDefault();
       e.stopImmediatePropagation();
       openMobileCheckout();

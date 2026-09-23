@@ -147,6 +147,14 @@ img{display:block;height:auto}
 .sticky__info strong{font-size:17px;font-weight:800}
 .sticky__info span{font-size:12px;color:#BDBDBD;font-variant-numeric:tabular-nums}
 .sticky .btn{min-height:48px;padding:0 22px;font-size:15px}
+
+/* Checkout no celular: janela própria com a altura da área visível */
+.co{position:fixed;left:0;top:0;width:100%;height:100vh;height:var(--co-h,100dvh);z-index:2147483000;background:#fff;display:flex;flex-direction:column}
+.co[hidden]{display:none}
+.co__bar{flex:none;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 16px;background:#0D0D0D;color:#fff;font-size:13px;font-weight:600;letter-spacing:.04em}
+.co__close{width:48px;height:48px;border:0;background:none;color:#fff;font-size:30px;line-height:1;cursor:pointer;font-family:inherit}
+.co iframe{flex:1;width:100%;min-height:0;border:0;display:block}
+html.co-open,html.co-open body{overflow:hidden}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -431,23 +439,64 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
   ln.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
   document.head.appendChild(ln);
 
-  // Abre o checkout por cima da página (tela cheia no celular). Roda na fase de captura
-  // para substituir o handler padrão do widget; se o widget ainda não carregou, o link
-  // segue normalmente para a página de checkout da Hotmart.
+  // Celular: janela própria em tela cheia. A altura segue a área realmente visível
+  // (sem a barra do navegador), para o botão de comprar do checkout não ficar cortado.
+  var co, coFrame;
+  function fitCheckout() {
+    var h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    co.style.setProperty('--co-h', Math.round(h) + 'px');
+  }
+  function openMobileCheckout() {
+    if (!co) {
+      co = document.createElement('div');
+      co.className = 'co';
+      co.setAttribute('role', 'dialog');
+      co.setAttribute('aria-label', 'Checkout');
+      co.innerHTML = '<div class="co__bar"><span>🔒 Pagamento seguro · Hotmart</span>' +
+        '<button type="button" class="co__close" aria-label="Fechar">×</button></div>';
+      coFrame = document.createElement('iframe');
+      coFrame.title = 'Checkout Hotmart';
+      coFrame.setAttribute('allow', 'payment');
+      coFrame.setAttribute('allowpaymentrequest', 'true');
+      co.appendChild(coFrame);
+      document.body.appendChild(co);
+      co.querySelector('.co__close').addEventListener('click', function () { history.back(); });
+      window.addEventListener('resize', function () { if (!co.hidden) fitCheckout(); });
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { if (!co.hidden) fitCheckout(); });
+      // O botão "voltar" do celular fecha o checkout em vez de sair da página.
+      window.addEventListener('popstate', function () { if (!co.hidden) closeMobileCheckout(); });
+    }
+    if (coFrame.src !== btn.href) coFrame.src = btn.href;
+    fitCheckout();
+    co.hidden = false;
+    document.documentElement.classList.add('co-open');
+    history.pushState({ checkout: true }, '');
+  }
+  function closeMobileCheckout() {
+    co.hidden = true;
+    document.documentElement.classList.remove('co-open');
+  }
+
+  // Abre o checkout por cima da página. Roda na fase de captura para substituir o
+  // handler padrão do widget. No computador usa o widget da Hotmart; se ele ainda não
+  // carregou, o link segue normalmente para a página de checkout da Hotmart.
   btn.addEventListener('click', function (e) {
     track('InitiateCheckout', offerData);
+    var mobile = window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent);
+    if (mobile) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      openMobileCheckout();
+      return;
+    }
     var jq = window.jQuery;
     if (!jq || !jq.fancybox) return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    var mobile = window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent);
     jq.fancybox.open({
       src: btn.href, type: 'iframe', toolbar: false, smallBtn: true,
-      iframe: {
-        css: mobile ? { width: '100%', height: '100%', maxWidth: 'none', maxHeight: 'none' } : { width: '600px' },
-        attr: { allowpaymentrequest: 'true' }
-      },
-      margin: mobile ? [0, 0] : [44, 0]
+      iframe: { css: { width: '600px' }, attr: { allowpaymentrequest: 'true' } },
+      margin: [44, 0]
     });
   }, true);
 })();

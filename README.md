@@ -7,7 +7,8 @@ Site estático: HTML, CSS e JavaScript puros, sem build.
 ## Estrutura
 
 - `index.html` — a página inteira (estilos e scripts inclusos).
-- `obrigado.html` — página de obrigado pós-compra, com o evento Purchase do Pixel.
+- `obrigado.html` — página de obrigado para compras aprovadas, com o evento Purchase do Pixel.
+- `aguardando.html` — página para compras aguardando pagamento ou análise de crédito (sem Purchase).
 - `assets/` — logos e mockup otimizados (WebP, com PNG/JPEG de reserva).
 - `design/` — pacote original exportado do Claude Design (protótipo, conversa e arquivos da marca).
 
@@ -25,7 +26,7 @@ No fim do `index.html`, no bloco `CONFIG`:
 
 ## Pixel da Meta
 
-ID `1076361875004041`. Eventos enviados pela página: `PageView`, `ViewContent` (ao ver a oferta) e `InitiateCheckout` (ao clicar em "Garantir minha vaga"). O `Purchase` (R$ 337,50, BRL) é enviado por `obrigado.html`, a página de obrigado: configure na Hotmart o redirecionamento pós-compra para `https://rhuandm.github.io/operacao-oab-lp/obrigado.html`. Dispara uma vez a cada 24h por navegador. Se o pixel da Hotmart também enviar Purchase, as compras contam em dobro: deixe só um dos dois.
+ID `1076361875004041`. Eventos enviados pela página: `PageView`, `ViewContent` (ao ver a oferta) e `InitiateCheckout` (ao clicar em "Garantir minha vaga"). O `Purchase` (R$ 337,50, BRL) é enviado por `obrigado.html`, a página de obrigado: na Hotmart, use `https://rhuandm.github.io/operacao-oab-lp/obrigado.html` em "URL para compras aprovadas" e `https://rhuandm.github.io/operacao-oab-lp/aguardando.html` em "aguardando pagamento" e "aguardando análise de crédito". Dispara uma vez a cada 24h por navegador. Se o pixel da Hotmart também enviar Purchase, as compras contam em dobro: deixe só um dos dois.
 
 ## Publicar
 

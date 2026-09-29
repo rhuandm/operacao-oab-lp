@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Compra confirmada | Operação OAB</title>
+<meta name="theme-color" content="#CE0103">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/tinos-400-normal.woff2" crossorigin>
+<script>
+// Se a Hotmart abrir esta página dentro da janela do checkout, mostra em tela cheia.
+if (window.top !== window.self) { try { window.top.location.href = location.href; } catch (e) {} }
+</script>
+<style>
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:optional;src:url(assets/fonts/outfit.woff2) format('woff2')}
+@font-face{font-family:'Tinos';font-style:normal;font-weight:400;font-display:optional;src:url(assets/fonts/tinos-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Tinos';font-style:italic;font-weight:700;font-display:optional;src:url(assets/fonts/tinos-700-italic.woff2) format('woff2')}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0D0D0D;color:#fff;-webkit-font-smoothing:antialiased}
+body{font-family:'Outfit',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 20px}
+main{max-width:560px;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+img{display:block;height:auto;width:200px}
+.tag{display:inline-block;background:#CE0103;padding:6px 14px;font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+h1{font-family:'Tinos',serif;font-weight:400;font-size:clamp(34px,7vw,52px);line-height:1.05;margin:0;text-wrap:balance}
+h1 em{font-weight:700}
+p{margin:0;color:#C9C9C9;font-size:17px;line-height:1.55;text-wrap:pretty}
+p strong{color:#fff}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1076361875004041');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+// Purchase: esta página só deve ser aberta pela Hotmart depois da compra.
+// Dispara uma vez a cada 24h por navegador (recarregar a página não conta outra compra).
+(function () {
+  if (window.top !== window.self) return; // aguarda a versão em tela cheia
+  var PURCHASE = { value: 337.50, currency: 'BRL', content_name: 'Operação OAB — 2ª Fase Direito Penal' };
+  var key = 'oab_purchase_sent';
+  try {
+    var last = parseInt(localStorage.getItem(key) || '', 10);
+    if (last && Date.now() - last < 24 * 3600e3) return;
+    localStorage.setItem(key, String(Date.now()));
+  } catch (e) {}
+  fbq('track', 'Purchase', PURCHASE);
+})();
+</script>
+</head>
+<body>
+<main>
+  <picture>
+    <source srcset="assets/logo-branca.webp" type="image/webp">
+    <img src="assets/logo-branca.png" width="480" height="205" alt="Operação OAB — 2ª Fase | Direito Penal">
+  </picture>
+  <span class="tag">Compra confirmada</span>
+  <h1>Bem-vindo à <em>Operação</em>.</h1>
+  <p>Sua inscrição foi recebida. Os dados de acesso à área de membros chegam no <strong>e-mail que você usou na compra</strong>, enviados pela Hotmart. Confira também a caixa de spam.</p>
+</main>
+</body>
+</html>

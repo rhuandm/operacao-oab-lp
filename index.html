@@ -475,7 +475,8 @@ src="https://www.facebook.com/tr?id=1076361875004041&ev=PageView&noscript=1"
   // ===== Checkout Hotmart (widget) =====
   var url = CONFIG.checkoutUrl;
   var btn = document.getElementById('checkout');
-  btn.href = url + (url.indexOf('?') > -1 ? '&' : '?') + 'checkoutMode=2';
+  // offDiscount: a Hotmart já abre o checkout com o cupom aplicado.
+  btn.href = url + (url.indexOf('?') > -1 ? '&' : '?') + 'checkoutMode=2&offDiscount=' + encodeURIComponent(CONFIG.coupon);
 
   // O widget da Hotmart só é usado no computador (no celular o checkout abre na janela
   // própria abaixo). Carrega depois da página pronta, para não pesar no carregamento.
